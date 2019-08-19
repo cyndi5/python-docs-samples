@@ -1,1 +1,2 @@
 Flask==1.0.2
+webcolors==1.9.1
