@@ -22,3 +22,12 @@ def test_index():
     r = client.get('/')
     assert r.status_code == 200
     assert 'Hello World' in r.data.decode('utf-8')
+
+
+def test_avery():
+    main.app.testing = True
+    client = main.app.test_client()
+
+    r = client.get('/avery')
+    assert r.status_code == 200
+    assert 'avery' in r.data.decode('utf-8')
