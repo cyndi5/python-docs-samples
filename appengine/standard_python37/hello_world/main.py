@@ -14,6 +14,7 @@
 
 # [START gae_python37_app]
 from flask import Flask
+from flask import request
 
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
@@ -21,16 +22,21 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route("/")
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'Hello World!'
+    return "Hello World!"
 
 
-@app.route('/avery')
-def avery():
-    """Return a friendly HTTP greeting."""
-    return 'avery'
+@app.route("/avery", methods=["GET"])
+def get_avery():
+    return "get avery"
+
+
+@app.route("/avery", methods=["POST"])
+def post_avery():
+    value = request.form.get("value")
+    return f"post avery {value}"
 
 
 if __name__ == '__main__':
