@@ -14,10 +14,7 @@
 
 # [START gae_python37_app]
 from flask import Flask
-from flask import request
-from webcolors import hex_to_rgb
-from webcolors import hex_to_rgb_percent
-from webcolors import normalize_hex
+
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
@@ -29,12 +26,6 @@ def hello():
     """Return a friendly HTTP greeting."""
     return 'Hello World!'
 
-@app.route('/rgb')
-def rgb():
-    hex = request.args.get('hex')
-    if(not hex.startswith('#')):
-        hex = '#' + hex
-    return str(hex_to_rgb(normalize_hex(hex))) + '<br>\n' + str(hex_to_rgb_percent(normalize_hex(hex)))
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
