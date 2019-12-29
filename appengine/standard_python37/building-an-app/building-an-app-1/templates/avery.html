@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Avery{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="value">Value</label>
+    <input name="value" id="value" required placeholder='{{ value or "" }}' value='{{ value or "" }}'>
+    <input type="submit" value="Avery">
+  </form>
+{% endblock %}

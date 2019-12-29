@@ -1,18 +1,9 @@
-<!doctype html>
-<html>
-<head>
-  <title>Datastore and Firebase Auth Example</title>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
 
-  <h1>Datastore and Firebase Auth Example</h1>
+{% block header %}
+  <h1>{% block title %}Index{% endblock %}</h1>
+{% endblock %}
 
-  <h2>Last 10 visits</h2>
-  {% for time in times %}
-    <p>{{ time }}</p>
-  {% endfor %}
-
-</body>
-</html>
+{% block content %}
+  <p>Welcome to the Index</p>
+{% endblock %}
